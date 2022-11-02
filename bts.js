@@ -25,7 +25,7 @@ function playround (player, computer) {
         return (playerScore, computerScore);
     } else if ((player == "ROCK" && computer == "PAPER") ||
                (player == "PAPER" && computer == "SCISSORS") ||
-               (player == "SCISSORS" && computer== "ROCK")) {
+               (player == "SCISSORS" && computer == "ROCK")) {
                 console.log(`You chose - ${player}, Computer chose - ${computer}. You lose!`);
                 // console.log(`Player Score - ${playerScore}, Computer Score - ${computerScore}`);
                 console.log(roundWinner =  'Computer');
