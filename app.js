@@ -5,53 +5,69 @@ let getComputerChoice = function () {
     return (choice.toUpperCase());
 }
 
+let getPlayerChoice;
+
 let playerscore = 0;
 let computerscore = 0;
 let roundwinner = "";
 
-let playRound = function (player1, player2) {
-    if ((player1 === "ROCK" && player2 === "SCISSORS") ||
-        (player1 === "PAPER" && player2 === "ROCK") ||
-        (player1 === "SCISSORS" && player2 === "PAPER")) {
-        console.log(`You chose ${player1}, computer chose ${player2}. You win.`);
-        return (roundwinner = "Player")
-    } else if ((player1 === "ROCK" && player2 === "PAPER") ||
-        (player1 === "PAPER" && player2 === "SCISSORS") ||
-        (player1 === "SCISSORS" && player2 === "ROCK")) {
-        console.log(`You chose ${player1}, computer chose ${player2}. You lose.`);
-        return (roundwinner = "Computer")
-    } else if (player1 === player2) {
-        console.log(`You chose ${player1}, computer chose ${player2}. Draw.`);
-        return (roundwinner = "Draw")
-    } else {
-        return (roundwinner = "None");
-    }
-}
+let body = document.querySelector('body')
+let results = document.createElement('div');
+results.classList.add('results');
 
-let playGame = function () {
-    for (let i = 0; ; i++) {
-        if (!(playerscore >= 5) && !(computerscore >= 5)) {
-            let getPlayerChoice = (prompt("Choose one among the following:", array)).toUpperCase();
-            playRound(getPlayerChoice, getComputerChoice());
-            if ((roundwinner === "Player") && !(playerscore >= 5 && computerscore >= 5)) {
-                playerscore++;
-                console.log(`Your Score: ${playerscore}, Computer Score: ${computerscore}`);
-                // return (playerscore, computerscore);
-            } else if ((roundwinner === "Computer") && !(playerscore >= 5 && computerscore >= 5)) {
-                computerscore++;
-                console.log(`Your Score: ${playerscore}, Computer Score: ${computerscore}`);
-                // return (playerscore, computerscore);
-            } else if ((roundwinner === "Draw") && !(playerscore >= 5 && computerscore >= 5)) {
-                console.log(`Your Score: ${playerscore}, Computer Score: ${computerscore}`);
-                // return (playerscore, computerscore);
-            } else if (roundwinner === "None") {
-                console.log("ERROR");
-                break;
-            }
-        } else {
-            let result = (playerscore === 5) ? "You are the CHAMPION!" : "Computer is the CHAMPION!" ;
+let score = document.createElement('div');
+score.classList.add('score');
+
+let finalResult = document.createElement('div');
+finalResult.classList.add('finalresult');
+
+let buttons = document.querySelectorAll('button');
+buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+        if (playerscore === 5 || computerscore === 5) {
+            let result = (playerscore === 5) ? "You are the CHAMPION!" : "Computer is the CHAMPION!";
             console.log(result);
-        }
-    }
+            finalResult.textContent = result;
+            body.appendChild(finalResult);
+        } else {
+            getPlayerChoice = button.id.toUpperCase();
+            playGame(getPlayerChoice, getComputerChoice());
+        };
+    });
+});
 
+let playGame = function (player, computer) {
+    if ((player === "ROCK" && computer === "SCISSORS") ||
+        (player === "PAPER" && computer === "ROCK") ||
+        (player === "SCISSORS" && computer === "PAPER")) {
+        playerscore++;
+        console.log(`Your Score: ${playerscore}, Computer Score: ${computerscore}`);
+        console.log(`You chose ${player}, computer chose ${computer}. You win.`);
+        results.textContent = `You chose ${player}, computer chose ${computer}. You win.`;
+        body.appendChild(results);
+        score.textContent = `Your Score: ${playerscore}, Computer Score: ${computerscore}`;
+        body.appendChild(score);
+        // return (playerscore, computerscore);
+    } else if ((player === "ROCK" && computer === "PAPER") ||
+        (player === "PAPER" && computer === "SCISSORS") ||
+        (player === "SCISSORS" && computer === "ROCK")) {
+        computerscore++;
+        console.log(`Your Score: ${playerscore}, Computer Score: ${computerscore}`);
+        console.log(`You chose ${player}, computer chose ${computer}. You lose.`);
+        results.textContent = `You chose ${player}, computer chose ${computer}. You lose.`;
+        body.appendChild(results);
+        score.textContent = `Your Score: ${playerscore}, Computer Score: ${computerscore}`;
+        body.appendChild(score);
+        // return (playerscore, computerscore);
+    } else if (player === computer) {
+        console.log(`Your Score: ${playerscore}, Computer Score: ${computerscore}`);
+        console.log(`You chose ${player}, computer chose ${computer}. Draw.`);
+        results.textcontent = `You chose ${player}, computer chose ${computer}. Draw.`;
+        body.appendChild(results);
+        score.textContent = `Your Score: ${playerscore}, Computer Score: ${computerscore}`;
+        body.appendChild(score);
+        // return (playerscore, computerscore);
+    } else {
+        console.log("ERROR");
+    }
 }
