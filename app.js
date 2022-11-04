@@ -11,7 +11,8 @@ let playerscore = 0;
 let computerscore = 0;
 let roundwinner = "";
 
-let body = document.querySelector('body')
+let body = document.querySelector('body');
+
 let results = document.createElement('div');
 results.classList.add('results');
 
@@ -41,8 +42,8 @@ let playGame = function (player, computer) {
         (player === "PAPER" && computer === "ROCK") ||
         (player === "SCISSORS" && computer === "PAPER")) {
         playerscore++;
-        console.log(`Your Score: ${playerscore}, Computer Score: ${computerscore}`);
         console.log(`You chose ${player}, computer chose ${computer}. You win.`);
+        console.log(`Your Score: ${playerscore}, Computer Score: ${computerscore}`);
         results.textContent = `You chose ${player}, computer chose ${computer}. You win.`;
         body.appendChild(results);
         score.textContent = `Your Score: ${playerscore}, Computer Score: ${computerscore}`;
@@ -52,17 +53,19 @@ let playGame = function (player, computer) {
         (player === "PAPER" && computer === "SCISSORS") ||
         (player === "SCISSORS" && computer === "ROCK")) {
         computerscore++;
-        console.log(`Your Score: ${playerscore}, Computer Score: ${computerscore}`);
         console.log(`You chose ${player}, computer chose ${computer}. You lose.`);
+        console.log(`Your Score: ${playerscore}, Computer Score: ${computerscore}`);
         results.textContent = `You chose ${player}, computer chose ${computer}. You lose.`;
         body.appendChild(results);
         score.textContent = `Your Score: ${playerscore}, Computer Score: ${computerscore}`;
         body.appendChild(score);
         // return (playerscore, computerscore);
     } else if (player === computer) {
+        playerscore = playerscore;
+        computerscore = computerscore;
+        console.log(`You chose ${player}, computer chose ${computer}. It's a tie.`);
         console.log(`Your Score: ${playerscore}, Computer Score: ${computerscore}`);
-        console.log(`You chose ${player}, computer chose ${computer}. Draw.`);
-        results.textcontent = `You chose ${player}, computer chose ${computer}. Draw.`;
+        results.textContent = `You chose ${player}, computer chose ${computer}. It's a tie.`;
         body.appendChild(results);
         score.textContent = `Your Score: ${playerscore}, Computer Score: ${computerscore}`;
         body.appendChild(score);
