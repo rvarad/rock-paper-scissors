@@ -9,7 +9,6 @@ let getPlayerChoice;
 
 let playerscore = 0;
 let computerscore = 0;
-let roundwinner = "";
 
 let body = document.querySelector('body');
 
@@ -22,18 +21,23 @@ score.classList.add('score');
 let finalResult = document.createElement('div');
 finalResult.classList.add('finalresult');
 
+let checkWinner = function () {
+    if (playerscore === 5) {
+        finalResult.textContent = "You are the CHAMPION!";
+        body.appendChild(finalResult);
+    } else if (computerscore === 5) {
+        finalResult.textContent = "Computer is the CHAMPION!";
+        body.appendChild(finalResult);
+    }
+}
+
 let buttons = document.querySelectorAll('button');
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
-        if (playerscore === 5 || computerscore === 5) {
-            let result = (playerscore === 5) ? "You are the CHAMPION!" : "Computer is the CHAMPION!";
-            console.log(result);
-            finalResult.textContent = result;
-            body.appendChild(finalResult);
-        } else {
+        if (playerscore < 5 && computerscore < 5) {
             getPlayerChoice = button.id.toUpperCase();
-            playGame(getPlayerChoice, getComputerChoice());
-        };
+            playGame(getPlayerChoice, getComputerChoice());        
+        }
     });
 });
 
@@ -48,6 +52,7 @@ let playGame = function (player, computer) {
         body.appendChild(results);
         score.textContent = `Your Score: ${playerscore}, Computer Score: ${computerscore}`;
         body.appendChild(score);
+        checkWinner();
         // return (playerscore, computerscore);
     } else if ((player === "ROCK" && computer === "PAPER") ||
         (player === "PAPER" && computer === "SCISSORS") ||
@@ -59,6 +64,7 @@ let playGame = function (player, computer) {
         body.appendChild(results);
         score.textContent = `Your Score: ${playerscore}, Computer Score: ${computerscore}`;
         body.appendChild(score);
+        checkWinner();
         // return (playerscore, computerscore);
     } else if (player === computer) {
         playerscore = playerscore;
@@ -69,6 +75,7 @@ let playGame = function (player, computer) {
         body.appendChild(results);
         score.textContent = `Your Score: ${playerscore}, Computer Score: ${computerscore}`;
         body.appendChild(score);
+        checkWinner();
         // return (playerscore, computerscore);
     } else {
         console.log("ERROR");
