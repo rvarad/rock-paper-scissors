@@ -13,10 +13,10 @@ let computerscore = 0;
 let body = document.querySelector('body');
 
 let roundresult = document.querySelector('.roundresult');
-let roundchoicestext = document.querySelector('.roundchoicestext')
+let roundchoicestext = document.querySelector('.roundchoicestext');
 
-let score = document.createElement('div');
-score.classList.add('score');
+let playerpoints = document.getElementById('playerscore');
+let computerpoints = document.getElementById('computerscore');
 
 let finalResult = document.createElement('div');
 finalResult.classList.add('finalresult');
@@ -49,9 +49,9 @@ let playGame = function (player, computer) {
         console.log(`You chose ${player}, computer chose ${computer}. You win.`);
         console.log(`Your Score: ${playerscore}, Computer Score: ${computerscore}`);
         roundresult.textContent = `You win.`;
-        roundchoicestext.textContent = `You chose ${player}, computer chose ${computer}.`
-        score.textContent = `Your Score: ${playerscore}, Computer Score: ${computerscore}`;
-        body.appendChild(score);
+        roundchoicestext.textContent = `You chose ${player}, computer chose ${computer}.`;
+        playerpoints.textContent = `You : ${playerscore}`;
+        computerpoints.textContent = `Computer : ${computerscore}`;
         checkWinner();
         // return (playerscore, computerscore);
     } else if ((player === "ROCK" && computer === "PAPER") ||
@@ -62,8 +62,8 @@ let playGame = function (player, computer) {
         console.log(`Your Score: ${playerscore}, Computer Score: ${computerscore}`);
         roundresult.textContent = `You lose.`;
         roundchoicestext.textContent = `You chose ${player}, computer chose ${computer}.`
-        score.textContent = `Your Score: ${playerscore}, Computer Score: ${computerscore}`;
-        body.appendChild(score);
+        playerpoints.textContent = `You : ${playerscore}`;
+        computerpoints.textContent = `Computer : ${computerscore}`;
         checkWinner();
         // return (playerscore, computerscore);
     } else if (player === computer) {
@@ -73,8 +73,8 @@ let playGame = function (player, computer) {
         console.log(`Your Score: ${playerscore}, Computer Score: ${computerscore}`);
         roundresult.textContent = `It's a tie.`;
         roundchoicestext.textContent = `You chose ${player}, computer chose ${computer}.`
-        score.textContent = `Your Score: ${playerscore}, Computer Score: ${computerscore}`;
-        body.appendChild(score);
+        playerpoints.textContent = `You : ${playerscore}`;
+        computerpoints.textContent = `Computer : ${computerscore}`;
         checkWinner();
         // return (playerscore, computerscore);
     } else {
