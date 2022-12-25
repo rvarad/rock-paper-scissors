@@ -12,8 +12,8 @@ let computerscore = 0;
 
 let body = document.querySelector('body');
 
-let results = document.createElement('div');
-results.classList.add('results');
+let roundresult = document.querySelector('.roundresult');
+let roundchoicestext = document.querySelector('.roundchoicestext')
 
 let score = document.createElement('div');
 score.classList.add('score');
@@ -35,7 +35,7 @@ let buttons = document.querySelectorAll('button');
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
         if (playerscore < 5 && computerscore < 5) {
-            getPlayerChoice = button.id.toUpperCase();
+            getPlayerChoice = button.id.replace('btn', '').toUpperCase();
             playGame(getPlayerChoice, getComputerChoice());        
         }
     });
@@ -48,8 +48,8 @@ let playGame = function (player, computer) {
         playerscore++;
         console.log(`You chose ${player}, computer chose ${computer}. You win.`);
         console.log(`Your Score: ${playerscore}, Computer Score: ${computerscore}`);
-        results.textContent = `You chose ${player}, computer chose ${computer}. You win.`;
-        body.appendChild(results);
+        roundresult.textContent = `You win.`;
+        roundchoicestext.textContent = `You chose ${player}, computer chose ${computer}.`
         score.textContent = `Your Score: ${playerscore}, Computer Score: ${computerscore}`;
         body.appendChild(score);
         checkWinner();
@@ -60,8 +60,8 @@ let playGame = function (player, computer) {
         computerscore++;
         console.log(`You chose ${player}, computer chose ${computer}. You lose.`);
         console.log(`Your Score: ${playerscore}, Computer Score: ${computerscore}`);
-        results.textContent = `You chose ${player}, computer chose ${computer}. You lose.`;
-        body.appendChild(results);
+        roundresult.textContent = `You lose.`;
+        roundchoicestext.textContent = `You chose ${player}, computer chose ${computer}.`
         score.textContent = `Your Score: ${playerscore}, Computer Score: ${computerscore}`;
         body.appendChild(score);
         checkWinner();
@@ -71,8 +71,8 @@ let playGame = function (player, computer) {
         computerscore = computerscore;
         console.log(`You chose ${player}, computer chose ${computer}. It's a tie.`);
         console.log(`Your Score: ${playerscore}, Computer Score: ${computerscore}`);
-        results.textContent = `You chose ${player}, computer chose ${computer}. It's a tie.`;
-        body.appendChild(results);
+        roundresult.textContent = `It's a tie.`;
+        roundchoicestext.textContent = `You chose ${player}, computer chose ${computer}.`
         score.textContent = `Your Score: ${playerscore}, Computer Score: ${computerscore}`;
         body.appendChild(score);
         checkWinner();
