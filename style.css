@@ -75,13 +75,13 @@ body {
     justify-content: center;
 }
 
-.roundresult {
-    font-size: 2rem;
+h3.roundresult {
+    font-size: 37.44px;
     color: var(--main-color);
 }
 
-.roundchoicestext {
-    font-size: larger;
+h3.roundchoicestext {
+    font-size: 19.2px;
 }
 
 .scorebox {
