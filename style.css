@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css2?family=Shojumaru&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+:root {
+    --primary: rgb(142, 173, 185);
+    --primarylight: #131313;
+    --primarydark: #00000a;
+    --secondarydark: rgb(59, 58, 58);
+    --secondarylighthover: rgb(83, 83, 83);
+    --secondarylightactive: rgb(88, 88, 88);
+    --header: rgb(255, 188, 2);
+    --main-color: white;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--primarylight);
+    color: var(--primary);
+    font-family: 'Montserrat', sans-serif;
+}
+
+.header {
+    width: 100%;
+    text-align: center;
+    background-color: var(--primarydark);
+    color: var(--header);
+    text-shadow: var(--header) 1px 0 5px;
+    font-family: 'Shojumaru', cursive;
+    font-size: 1.5rem;
+    padding: 40px 0px;
+}
+
+.main {
+    padding-top: 35px;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.mid {
+    height: 85%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.scoreboard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 150px 0px 150px;
+    width: 100%;
+    color: var(--primary);
+}
+
+.roundinfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.roundresult {
+    font-size: 2rem;
+    color: var(--main-color);
+}
+
+.roundchoicestext {
+    font-size: larger;
+}
+
+.scorebox {
+    height: 35vh;
+    width: max(400px, 30%);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.scorecard {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 30px;
+}
+
+.score {
+    text-align: center;
+    justify-self: flex-end;
+    font-size: 1.3rem;
+}
+
+.weapons {
+    margin: 0px 10px 10px 10px;
+    color: var(--header);
+    font-size: larger;
+}
+
+.buttons {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.btn {
+    padding: 25px;
+    background-color: var(--secondarydark);
+    border: 0px;
+    border-radius: 10px;
+}
+
+.sign {
+    font-size: 6rem;
+}
+
+.btn:hover {
+    cursor: pointer;
+    background-color: var(--secondarylighthover);
+}
+
+.btn:active {
+    cursor: pointer;
+    background-color: var(--secondarylightactive);
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 10%;
+    color: var(--primary);
+}
+
+.footer .credits a {
+    font-family: 'Montserrat', sans-serif;
+    font-size: larger;
+    color: var(--main-color);
+}
