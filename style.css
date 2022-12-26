@@ -103,6 +103,10 @@ h3.roundchoicestext {
     gap: 30px;
 }
 
+.display {
+    height: 130px;
+}
+
 .score {
     text-align: center;
     justify-self: flex-end;
@@ -125,7 +129,7 @@ h3.roundchoicestext {
 }
 
 .btn {
-    padding: 25px;
+    padding: 25px 15px;
     background-color: var(--secondarydark);
     border: 0px;
     border-radius: 10px;
@@ -185,17 +189,18 @@ h3.roundchoicestext {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) scale(0);
-    padding: 10px;
-    height: 150px;
-    width: 350px;
+    padding: 30px 30px;
+    height: 200px;
+    width: 450px;
     display: none;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 15px;
+    gap: 35px;
     text-align: center;
     background-color: var(--primarydark);
-    border-radius: 15px;
+    border-radius: 25px;
+    box-shadow: var(--header) 1px 0 5px;
 }
 
 .modal.active {
