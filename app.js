@@ -39,6 +39,8 @@ let endofgame = function () {
 } 
 
 let replay = function () {
+    roundresult.textContent = "YOU vs COMPUTER";
+    roundchoicestext.textContent = "First to 5 points wins the game";
     playerscore = 0;
     playerpoints.textContent = "You : 0";
     computerscore = 0;
